@@ -8,7 +8,7 @@
  */
 
  module.exports = (sequelize, DataTypes) => {
-  const Categorie = sequelize.define('Categorie', {
+  const Category = sequelize.define('Category', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: DataTypes.STRING,
     // A declaração da Foreign Key é opcional no model
@@ -19,10 +19,10 @@
     underscored: true,
   });
 
-  Categorie.associate = (models) => {
-    Categorie.hasOne(models.PostsCategorie,
+  Category.associate = (models) => {
+    Category.hasOne(models.PostsCategorie,
       { foreignKey: 'categoryId', as: 'posts_categories' });
   };
 
-  return Categorie;
+  return Category;
 };
