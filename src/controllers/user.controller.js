@@ -4,20 +4,19 @@ const newUser = require('../services/login.service');
 const { JWT_SECRET } = process.env;
 
 module.exports = async (req, res) => {
-  const { email, password } = req.body;
+  const { displayName, email, password, image } = req.body;
   const payload = {
     email: req.body.email,
   };
-
   const token = jwt.sign(payload, JWT_SECRET, {
     expiresIn: '4d',
   });
   const User = await newUser.login(email, password);
-// console.log(User);
   if (User) {
-    res.status(200).json({ token });
+    res.status(409).json({ message: 'User already registered' });
   }
   if (!User) {
-    res.status(400).json({ message: 'Invalid fields' });
+    await newUser.createUser(displayName, email, password, image);
+    res.status(201).json({ token });
   }
 };
