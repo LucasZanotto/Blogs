@@ -20,7 +20,7 @@
   });
 
   Category.associate = (models) => {
-    Category.hasOne(models.PostsCategorie,
+    Category.hasOne(models.PostCategory,
       { foreignKey: 'categoryId', as: 'posts_categories' });
   };
 
