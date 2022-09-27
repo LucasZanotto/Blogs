@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.post('/login', middlewares.login, controllers.login);
 app.post('/user', middlewares.user, controllers.user);
+app.get('/user', middlewares.auth, controllers.listUsers);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
