@@ -5,7 +5,7 @@ const newUser = require('../services/login.service');
 
 module.exports = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+  // console.log(id);
   const allUsers = await newUser.findById(id);
   if (!allUsers) {
     return res.status(404).json({ message: 'User does not exist' });

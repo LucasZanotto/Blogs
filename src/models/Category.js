@@ -15,14 +15,14 @@
   },
   {
     timestamps: false,
-    tableName: 'posts_categories',
+    tableName: 'categories',
     underscored: true,
   });
 
-  Category.associate = (models) => {
-    Category.hasOne(models.PostCategory,
-      { foreignKey: 'categoryId', as: 'posts_categories' });
-  };
+  // Category.associate = (models) => {
+  //   Category.hasMany(models.PostCategory,
+  //     { foreignKey: 'categoryId', as: 'categories' });
+  // };
 
   return Category;
 };
