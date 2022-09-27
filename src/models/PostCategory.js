@@ -33,7 +33,7 @@
       otherKey: 'post_id'
     });
     models.BlogPost.belongsToMany(models.Category, {
-      as: 'posts',
+      as: 'categories',
       through: PostsCategorie,
       foreignKey: 'post_id',
       otherKey: 'category_id'

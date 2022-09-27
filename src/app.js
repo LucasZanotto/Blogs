@@ -17,6 +17,8 @@ app.get('/user', middlewares.auth, controllers.listUsers);
 app.get('/user/:id', middlewares.auth, controllers.findUser); 
 app.post('/categories', middlewares.auth, controllers.createCategory);
 app.get('/categories', middlewares.auth, controllers.findAllCategory);
+app.get('/post', middlewares.auth, controllers.findAllBlogs);
+app.get('/post/:id', middlewares.auth, controllers.findBlogPosts);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`

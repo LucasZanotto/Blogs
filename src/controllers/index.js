@@ -4,6 +4,8 @@ const listUsers = require('./listUsers.controller');
 const findUser = require('./findByUser');
 const createCategory = require('./createCategory');
 const findAllCategory = require('./findAllCategory');
+const findBlogPosts = require('./findBlogPosts');
+const findAllBlogs = require('./findAllBlogs');
 
 module.exports = {
   login,
@@ -12,4 +14,6 @@ module.exports = {
   findUser,
   createCategory,
   findAllCategory,
+  findBlogPosts,
+  findAllBlogs,
 };

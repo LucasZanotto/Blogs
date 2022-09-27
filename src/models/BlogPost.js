@@ -13,19 +13,21 @@
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     userId: { type: DataTypes.INTEGER, foreignKey: true },
-    published: DataTypes.DATE,
-    updated: DataTypes.DATE,
+    published: { type: DataTypes.DATE },
+    updated: { type: DataTypes.DATE },
     // A declaração da Foreign Key é opcional no model
   },
   {
     timestamps: false,
     tableName: 'blog_posts',
     underscored: true,
+    createdAt: "published",
+    updatedAt: "updated",
   });
 
   BlogPost.associate = (models) => {
     BlogPost.belongsTo(models.User,
-      { foreignKey: 'userId', as: 'users' });
+      { foreignKey: 'userId', as: 'user' });
   };
 
   return BlogPost;
